@@ -6,7 +6,7 @@
 <center> 2 Carnegie Mellon University</center>
 <center> 3 Microsoft Research Asia</center>
 <center> 4 Zhejiang University</center>
-<center> * denotes the equal contribution <center>
+<center> * denotes the equal contribution </center>
 
 
 ## Abstract

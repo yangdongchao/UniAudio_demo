@@ -1,12 +1,11 @@
 # <center> UniAudio: An Audio Foundation Model Toward Universal Audio Generation </center>
 
-<center> Dongchao Yang*<sup>1</sup>, Jinchuan Tian*<sup>2</sup>, Xu Tan <sup>3</sup>, Rongjie Huang <sup>4</sup>, Songxiang Liu,  Xuankai Chang<sup>2</sup>, Jiatong Shi <sup>2</sup>, Sheng Zhao <sup>3</sup>, Jiang Bian <sup>3</sup>, Xixin Wu <sup>1</sup>, Zhou Zhao <sup>4</sup>, Helen Meng<sup>1</sup> <center> 
+<center> Dongchao Yang*<sup>1</sup>, Jinchuan Tian*<sup>2</sup>, Xu Tan <sup>3</sup>, Rongjie Huang <sup>4</sup>, Songxiang Liu,  Xuankai Chang<sup>2</sup>, Jiatong Shi <sup>2</sup>, Sheng Zhao <sup>3</sup>, Jiang Bian <sup>3</sup>, Xixin Wu <sup>1</sup>, Zhou Zhao <sup>4</sup>, Helen Meng<sup>1</sup> </center> 
  
 <center> 1 Chinese University of Hong Kong </center>
 <center> 2 Carnegie Mellon University</center>
 <center> 3 Microsoft Research Asia</center>
 <center> 4 Zhejiang University</center>
-<center> * denotes the equal contribution </center>
 
 
 ## Abstract

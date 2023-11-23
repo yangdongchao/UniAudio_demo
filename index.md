@@ -148,8 +148,8 @@ In the following, we find a moive clips from bilibili (https://www.bilibili.com/
 
 | <center> Instruction (The text description) </center> | <center> Generated Sound </center>|
 | -----------     |  -----------     |
-| Someone is running alone on a hardwood floor. | <audio src="sound/gen/3.wav" controls preload></audio> |
-| Repeated bursts of fireworks are accompanied by intermittent cheers and whistles of a crowd | <audio src="sound/gen/6.wav" controls preload></audio> |
+| An ambulance siren wails continue for more than twenty seconds. | <audio src="sound/long/TSS_139_sampling_sample1.wav" controls preload></audio> |
+| A cricket is chirping as the wind is blowing. | <audio src="sound/long/TSS_761_sampling_sample0.wav" controls preload></audio> |
 
 
 ## Zero-shot Text-to-Music

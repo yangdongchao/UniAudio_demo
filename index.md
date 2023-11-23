@@ -38,6 +38,7 @@ In the following, we first show some case in LibriTTS test clean set. To make ou
 | BY THIS TIME LORD CHELFORD AND WYLDER RETURNED AND DISGUSTED RATHER WITH MYSELF I RUMINATED ON MY WANT OF GENERAL SHIP | <audio class="audio-player2" src="zero_shot_tts/ref/5683_32865_000001_000000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gen/tts_5683-32866-0004.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gt/tts_5683-32866-0004.wav" controls preload></audio> |
 
 ### Long sentence by TTS
+
 | <center>  Content </center> | <center> Generated Speech </center>| <center> GT Speech </center>|
 | -----------------------     |  -----------   | ----- |-------|
 | THE DEPARTING LADIES WHO HAD SAID THEY WOULD STAY DIDN'T OF COURSE THANK HEAVEN STAY THEY DEPARTED IN CONSEQUENCE OF ARRANGEMENTS MADE IN A RAGE OF CURIOSITY AS THEY PROFESSED PRODUCED BY THE TOUCHES WITH WHICH HE HAD ALREADY WORKED US UP | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_121-127105-0025.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_121-127105-0025.wav" controls preload></audio> |
@@ -144,6 +145,7 @@ In the following, we find a moive clips from bilibili (https://www.bilibili.com/
 | After a train horn blows, the chugging of the engine Increases. | <audio src="sound/gen/234.wav" controls preload></audio> |
 
 #### 20s audio genenration
+
 | <center> Instruction (The text description) </center> | <center> Generated Sound </center>|
 | -----------     |  -----------     |
 | Someone is running alone on a hardwood floor. | <audio src="sound/gen/3.wav" controls preload></audio> |
@@ -166,6 +168,7 @@ In the following, we find a moive clips from bilibili (https://www.bilibili.com/
 | This is a pop music piece. The words are being sung by two vocals: one male and one female which lead to a duet for the chorus. There is a banjo and an electric guitar playing the melody while a simple electronic drum beat provides the rhythmic background for the song. It is a slightly melodic and emotional song. This piece could be used in the soundtrack of a romantic drama during a flashback scene. | <audio src="music/gen/2U8Dvh7nwFI.wav" controls preload></audio> |
 
 ### 20s music generation
+
 | <center> Instruction (The text description)  </center> | <center> Generated Music </center>|
 | -----------     |  -----------     |
 | The music is purely instrumental and so it features no human voice. More gamelans are played but by using different techniques. Other metallic percussion instruments can be heard. | <audio src="TTM/long/TTM_7XMqcbZKNNw_sampling_sample0.wav" controls preload></audio> |

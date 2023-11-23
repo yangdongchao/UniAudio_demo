@@ -15,8 +15,6 @@ UniAudio 1) first tokenizes all types of target audio along with other condition
 ## Introduction
 The overview of UniAudio as following picture shows.
 ![The overview of UniAudio](fig/overview.png)
-The task comparison between previous works.
-![The task](fig/task.png)
 In the following, we will show some generated samples by our proposed method. 
 
 <style>
@@ -38,6 +36,13 @@ In the following, we first show some case in LibriTTS test clean set. To make ou
 | THAT IS ONE REASON YOU ARE OJO THE UNLUCKY SAID THE WOMAN IN A SYMPATHETIC TONE | <audio class="audio-player2" src="zero_shot_tts/ref/tts_1284-1180-0001.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gen/tts_1284-1180-0024.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gt/tts_1284-1180-0024.wav" controls preload></audio> |
 | THE DEWS WERE SUFFERED TO EXHALE AND THE SUN HAD DISPERSED THE MISTS AND WAS SHEDDING A STRONG AND CLEAR LIGHT IN THE FOREST WHEN THE TRAVELERS RESUMED THEIR JOURNEY | <audio class="audio-player2" src="zero_shot_tts/ref/1320_122612_000001_000000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gen/tts_1320-122612-0001.wav" controls preload></audio> | <audio  class="audio-player2" src="zero_shot_tts/gt/tts_1320-122612-0001.wav" controls preload></audio> |
 | BY THIS TIME LORD CHELFORD AND WYLDER RETURNED AND DISGUSTED RATHER WITH MYSELF I RUMINATED ON MY WANT OF GENERAL SHIP | <audio class="audio-player2" src="zero_shot_tts/ref/5683_32865_000001_000000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gen/tts_5683-32866-0004.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gt/tts_5683-32866-0004.wav" controls preload></audio> |
+
+### Long sentence by TTS
+| <center>  Content </center> | <center> Generated Speech </center>| <center> GT Speech </center>|
+| -----------------------     |  -----------   | ----- |-------|
+| THE DEPARTING LADIES WHO HAD SAID THEY WOULD STAY DIDN'T OF COURSE THANK HEAVEN STAY THEY DEPARTED IN CONSEQUENCE OF ARRANGEMENTS MADE IN A RAGE OF CURIOSITY AS THEY PROFESSED PRODUCED BY THE TOUCHES WITH WHICH HE HAD ALREADY WORKED US UP | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_121-127105-0025.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_121-127105-0025.wav" controls preload></audio> |
+| THE DYNAMO ELECTRIC MACHINE THOUGH SMALL WAS ROBUST FOR UNDER ALL THE VARYING SPEEDS OF WATER POWER AND THE VICISSITUDES OF THE PLANT TO WHICH IT BELONGED IT CONTINUED IN ACTIVE USE UNTIL EIGHTEEN NINETY NINE SEVENTEEN YEARS | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_2300-131720-0003.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_2300-131720-0003.wav" controls preload></audio> |
+| EVERY ONE COULD OBSERVE HIS AGITATION AND PROSTRATION A PROSTRATION WHICH WAS INDEED THE MORE REMARKABLE SINCE PEOPLE WERE NOT ACCUSTOMED TO SEE HIM WITH HIS ARMS HANGING LISTLESSLY BY HIS SIDE HIS HEAD BEWILDERED AND HIS EYES WITH ALL THEIR BRIGHT INTELLIGENCE BEDIMMED | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_7127-75947-0000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_7127-75947-0000.wav" controls preload></audio> |
 
 ### Cloning famous person's voice 
 In the following, we try to using 3 seconds prompt from three famous person: Theresa May, Barack Obama and Taylor Swift, and using their voice to read some text content (randomly choose from LibriTTS).
@@ -138,6 +143,13 @@ In the following, we find a moive clips from bilibili (https://www.bilibili.com/
 | After a train horn blows, the chugging of the engine Increases. | <audio src="sound/gen/234.wav" controls preload></audio> |
 | After a train horn blows, the chugging of the engine Increases. | <audio src="sound/gen/234.wav" controls preload></audio> |
 
+#### 20s audio genenration
+| <center> Instruction (The text description) </center> | <center> Generated Sound </center>|
+| -----------     |  -----------     |
+| Someone is running alone on a hardwood floor. | <audio src="sound/gen/3.wav" controls preload></audio> |
+| Repeated bursts of fireworks are accompanied by intermittent cheers and whistles of a crowd | <audio src="sound/gen/6.wav" controls preload></audio> |
+
+
 ## Zero-shot Text-to-Music
 
 | <center> Instruction (The text description)  </center> | <center> Generated Music </center>|
@@ -152,6 +164,13 @@ In the following, we find a moive clips from bilibili (https://www.bilibili.com/
 | The pop rock music features a male voice singing. An electric guitar with a distortion effect on plays plays two chords every two measures. The drums play a strong rhythm and together with a synth bass drive the pulse of the music. | <audio src="music/gen/-hSMzrWZCAE.wav" controls preload></audio> |
 | The low quality recording features a live performance of loud steel pans melody over playback instrumental that consists of shimmering hi hats, open hats and "4 on the floor" kick pattern. There are some crowd talking noises in the background. It sounds exotic and energetic. | <audio src="music/gen/0bvPjMQ_WbE.wav" controls preload></audio> |
 | This is a pop music piece. The words are being sung by two vocals: one male and one female which lead to a duet for the chorus. There is a banjo and an electric guitar playing the melody while a simple electronic drum beat provides the rhythmic background for the song. It is a slightly melodic and emotional song. This piece could be used in the soundtrack of a romantic drama during a flashback scene. | <audio src="music/gen/2U8Dvh7nwFI.wav" controls preload></audio> |
+
+### 20s music generation
+| <center> Instruction (The text description)  </center> | <center> Generated Music </center>|
+| -----------     |  -----------     |
+| The music is purely instrumental and so it features no human voice. More gamelans are played but by using different techniques. Other metallic percussion instruments can be heard. | <audio src="TTM/long/TTM_7XMqcbZKNNw_sampling_sample0.wav" controls preload></audio> |
+| This song is a sweet duet. The tempo is medium with a melodious, intense piano accompaniment , electric guitar rhythm, steady drumming and synthesiser arrangements. This song is melodic, story telling, spirited, emotional, passionate and sweet. The lyrics are simple and so this song could be a Children’s Song. | <audio src="TTM/long/TTM_DP2vmsftZHY_sampling_sample0.wav" controls preload></audio> |
+
 
 ## Instructed TTS
 

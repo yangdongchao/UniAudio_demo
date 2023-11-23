@@ -14,7 +14,7 @@ UniAudio 1) first tokenizes all types of target audio along with other condition
 
 ## Introduction
 The overview of UniAudio as following picture shows.
-![The overview of UniAudio](fig/overview.png)
+![The overview of UniAudio](fig/overview2.png)
 In the following, we will show some generated samples by our proposed method. 
 
 <style>

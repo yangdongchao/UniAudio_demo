@@ -1,20 +1,23 @@
-# <center> UniAudio: An Audio Foundation Model Toward Universal Audio Generation </center>
+# <center> UniAudio: Towards Universal Audio Generation with Large Language Models </center>
 
-<center> Dongchao Yang*<sup>1</sup>, Jinchuan Tian*<sup>2</sup>, Xu Tan <sup>3</sup>, Rongjie Huang <sup>4</sup>, Songxiang Liu,  Xuankai Chang<sup>2</sup>, Jiatong Shi <sup>2</sup>, Sheng Zhao <sup>3</sup>, Jiang Bian <sup>3</sup>, Xixin Wu <sup>1</sup>, Zhou Zhao <sup>4</sup>, Helen Meng<sup>1</sup> </center> 
+<center> Dongchao Yang*<sup>1</sup>, Jinchuan Tian*<sup>2</sup>, Xu Tan <sup>3</sup>, Rongjie Huang <sup>4</sup>, Songxiang Liu, HaoHan Guo<sup>1</sup>,  Xuankai Chang<sup>2</sup>, Jiatong Shi <sup>2</sup>, Sheng Zhao <sup>3</sup>, Jiang Bian <sup>3</sup>, Zhou Zhao <sup>4</sup>, Xixin Wu <sup>1</sup>, Helen Meng<sup>1</sup> </center> 
  
+<center> * Equal Contribution </center>
 <center> 1 Chinese University of Hong Kong </center>
 <center> 2 Carnegie Mellon University</center>
 <center> 3 Microsoft Research Asia</center>
 <center> 4 Zhejiang University</center>
 
 
-## Abstract
-Language models (LMs) have demonstrated the capability to handle a variety of generative tasks. This paper presents the UniAudio system, which, unlike prior task-specific approaches, leverages LMs techniques to generate multiple types of audio (including speech, sounds, music, and singing) with given input conditions. 
-UniAudio 1) first tokenizes all types of target audio along with other condition modalities, 2) concatenates source-target pair as a single sequence, and 3) performs next-token prediction using LMs. Also, a multi-scale Transformer model is proposed to handle the overly long sequences caused by the residual vector quantization based neural codec in tokenization. Training of UniAudio is scaled up to 165K hours of audio and 1B parameters, based on all generative tasks, aiming to obtain sufficient prior knowledge not only in the intrinsic properties of audio but also the inter-relationship between audio and other modalities. Therefore, the trained UniAudio model has the potential to become a foundation model for universal audio generation: it shows strong capability in all trained tasks and can seamlessly support new audio generation tasks after simple fine-tuning. Experiments demonstrate that UniAudio achieves state-of-the-art or at least competitive results on most of the 11 tasks. Demo and code are released.
-
 ## Introduction
+Audio generation is a major branch of generative AI research. Compared with prior works in this area that are commonly task-specific with heavy domain knowledge, this paper advocates building universal audio generation models that can handle various tasks in a unified manner.
+As recent research on large language models (LLMs) has demonstrated their strong ability to handle multiple tasks, this work presents UniAudio, an LLM-based audio generation model that supports a wide range of audio generation tasks.
+Based on various input conditions, such as phoneme, text description, or audio itself, UniAudio can generate speech, sound, music, and singing voice. 
+The proposed UniAudio is built with 100k hours of multi-source open-available audio data and is scaled to 1B parameters. The audio tokenization method and language model architecture are also specifically designed for both performance and efficiency. Experimentally, UniAuido supports 11 audio generation tasks and achieves competitive results on all tasks consistently. We also show that UniAudio can support new tasks seamlessly via simple fine-tuning.
+
+## Overview
 The overview of UniAudio as following picture shows.
-![The overview of UniAudio](fig/overview2.png)
+![The overview of UniAudio](fig/over.png)
 In the following, we will show some generated samples by our proposed method. 
 
 <style>
@@ -27,7 +30,7 @@ In the following, we will show some generated samples by our proposed method.
 </style>
 
 ## Zero-shot TTS.
-In the following, we first show some case in LibriTTS test clean set. To make our results can be reproduced, we will release all of the generated LibriTTS clean set in the google drive.
+In the following, we first show some case in LibriTTS test clean set. 
 
 | <center>  Content (The transcirption of the target audio) </center> | <center> Prompt </center> | <center> Generated Speech </center>| <center> GT Speech </center>|
 | -----------------------     |  -----------   | ------ | ----- |-------|
@@ -37,13 +40,6 @@ In the following, we first show some case in LibriTTS test clean set. To make ou
 | THE DEWS WERE SUFFERED TO EXHALE AND THE SUN HAD DISPERSED THE MISTS AND WAS SHEDDING A STRONG AND CLEAR LIGHT IN THE FOREST WHEN THE TRAVELERS RESUMED THEIR JOURNEY | <audio class="audio-player2" src="zero_shot_tts/ref/1320_122612_000001_000000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gen/tts_1320-122612-0001.wav" controls preload></audio> | <audio  class="audio-player2" src="zero_shot_tts/gt/tts_1320-122612-0001.wav" controls preload></audio> |
 | BY THIS TIME LORD CHELFORD AND WYLDER RETURNED AND DISGUSTED RATHER WITH MYSELF I RUMINATED ON MY WANT OF GENERAL SHIP | <audio class="audio-player2" src="zero_shot_tts/ref/5683_32865_000001_000000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gen/tts_5683-32866-0004.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/gt/tts_5683-32866-0004.wav" controls preload></audio> |
 
-### Long sentence by TTS
-
-| <center>  Content </center> | <center> Generated Speech </center>| <center> GT Speech </center>|
-| -----------------------     |  -----------   | ----- |-------|
-| THE DEPARTING LADIES WHO HAD SAID THEY WOULD STAY DIDN'T OF COURSE THANK HEAVEN STAY THEY DEPARTED IN CONSEQUENCE OF ARRANGEMENTS MADE IN A RAGE OF CURIOSITY AS THEY PROFESSED PRODUCED BY THE TOUCHES WITH WHICH HE HAD ALREADY WORKED US UP | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_121-127105-0025.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_121-127105-0025.wav" controls preload></audio> |
-| THE DYNAMO ELECTRIC MACHINE THOUGH SMALL WAS ROBUST FOR UNDER ALL THE VARYING SPEEDS OF WATER POWER AND THE VICISSITUDES OF THE PLANT TO WHICH IT BELONGED IT CONTINUED IN ACTIVE USE UNTIL EIGHTEEN NINETY NINE SEVENTEEN YEARS | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_2300-131720-0003.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_2300-131720-0003.wav" controls preload></audio> |
-| EVERY ONE COULD OBSERVE HIS AGITATION AND PROSTRATION A PROSTRATION WHICH WAS INDEED THE MORE REMARKABLE SINCE PEOPLE WERE NOT ACCUSTOMED TO SEE HIM WITH HIS ARMS HANGING LISTLESSLY BY HIS SIDE HIS HEAD BEWILDERED AND HIS EYES WITH ALL THEIR BRIGHT INTELLIGENCE BEDIMMED | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_7127-75947-0000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_7127-75947-0000.wav" controls preload></audio> |
 
 ### Cloning famous person's voice 
 In the following, we try to using 3 seconds prompt from three famous person: Theresa May, Barack Obama and Taylor Swift, and using their voice to read some text content (randomly choose from LibriTTS).
@@ -55,9 +51,7 @@ In the following, we try to using 3 seconds prompt from three famous person: The
 | Barack Obama | MUCH LATER WHEN A FRIEND OF HIS WAS PREPARING AN EDITION OF ALL HIS LATIN WORKS HE REMARKED TO HIS HOME CIRCLE IF I HAD MY WAY ABOUT IT THEY WOULD REPUBLISH ONLY THOSE OF MY BOOKS WHICH HAVE DOCTRINE MY GALATIANS FOR INSTANCE | <audio class="audio-player" src="zero_shot_tts/famous/obama/obama.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/obama/tts_2830-3979-0007_sampling_sample0.wav" controls preload></audio> |
 | Barack Obama | GRAM ROUGHLY ONE TWENTY EIGHTH OF AN OUNCE | <audio class="audio-player" src="zero_shot_tts/famous/obama/obama.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/obama/tts_8463-294825-0015_sampling_sample0.wav" controls preload></audio> |
 | Theresa May | HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT | <audio class="audio-player" src="zero_shot_tts/famous/May/tts_61-70968-0011_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/May/tts_61-70968-0011_sampling_sample0.wav" controls preload></audio> |
-| Theresa May | IF FOR A WHIM YOU BEGGAR YOURSELF I CANNOT STAY YOU | <audio class="audio-player" src="zero_shot_tts/famous/May/tts_61-70968-0011_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/May/tts_61-70970-0003_sampling_sample0.wav" controls preload></audio> |
-| Taylor Swift | YOUNG FITZOOTH HAD BEEN COMMANDED TO HIS MOTHER'S CHAMBER SO SOON AS HE HAD COME OUT FROM HIS CONVERSE WITH THE SQUIRE | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_8555-284449-0020_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_61-70970-0000_sampling_sample0.wav" controls preload></audio> |
-| Taylor Swift | HE WAS IN DEEP CONVERSE WITH THE CLERK AND ENTERED THE HALL HOLDING HIM BY THE ARM | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_8555-284449-0020_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_61-70970-0007_sampling_sample0.wav" controls preload></audio> |
+| Taylor Swift | YOUNG HAD BEEN COMMANDED TO HIS MOTHER'S CHAMBER SO SOON AS HE HAD COME OUT FROM HIS CONVERSE WITH THE SQUIRE | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_8555-284449-0020_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_61-70970-0000_sampling_sample0.wav" controls preload></audio> |
 | Taylor Swift | REST AND BE STILL UNTIL I WARN YOU | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_8555-284449-0020_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_61-70970-0017_sampling_sample0.wav" controls preload></audio> |
 | Taylor Swift | THE COMBINED BANDS OF BOTH THE COUNTRIES PLAYED THE MUSIC AND A FINE SUPPER WAS SERVED | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_8555-284449-0020_input1.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/ts/tts_8555-284449-0020_sampling_sample0.wav" controls preload></audio> |
 
@@ -76,7 +70,12 @@ In this part, we show some case that clone our friends's voice. We directly use 
 | Boy | ALSO THERE WAS A STRIPLING PAGE WHO TURNED INTO A MAID |<audio class="audio-player" src="zero_shot_tts/famous/dc/dongchao_prompt.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/dc/tts_61-70968-0004_sampling_sample1.wav" controls preload></audio> |
 | Boy | I HAD A NAME I BELIEVE IN MY YOUNG DAYS BUT I HAVE FORGOTTEN IT SINCE I HAVE BEEN IN SERVICE | <audio class="audio-player" src="zero_shot_tts/famous/dc/dongchao_prompt.wav" controls preload></audio> | <audio class="audio-player" src="zero_shot_tts/famous/dc/tts_3729-6852-0011_sampling_sample1.wav" controls preload></audio> |
 
+### Long sentence by TTS
 
+| <center>  Content </center> | <center> Generated Speech </center>| <center> GT Speech </center>|
+| -----------------------     |  -----------   | ----- |-------|
+| THE DYNAMO ELECTRIC MACHINE THOUGH SMALL WAS ROBUST FOR UNDER ALL THE VARYING SPEEDS OF WATER POWER AND THE VICISSITUDES OF THE PLANT TO WHICH IT BELONGED IT CONTINUED IN ACTIVE USE UNTIL EIGHTEEN NINETY NINE SEVENTEEN YEARS | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_2300-131720-0003.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_2300-131720-0003.wav" controls preload></audio> |
+| EVERY ONE COULD OBSERVE HIS AGITATION AND PROSTRATION A PROSTRATION WHICH WAS INDEED THE MORE REMARKABLE SINCE PEOPLE WERE NOT ACCUSTOMED TO SEE HIM WITH HIS ARMS HANGING LISTLESSLY BY HIS SIDE HIS HEAD BEWILDERED AND HIS EYES WITH ALL THEIR BRIGHT INTELLIGENCE BEDIMMED | <audio class="audio-player2" src="zero_shot_tts/long/gen/tts_7127-75947-0000.wav" controls preload></audio> | <audio class="audio-player2" src="zero_shot_tts/long/gt/tts_7127-75947-0000.wav" controls preload></audio> |
 
 ## Zero-shot VC.
 In the following, we show some case using VCTK. Similar with previous section, we can easy to use our own voice prompt to realize voice conversion. 
